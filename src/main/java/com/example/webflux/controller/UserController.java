@@ -37,7 +37,7 @@ public class UserController {
      */
     @PutMapping
     public Mono<User> update(@RequestBody User user){
-        return this.userService.create(user);
+        return this.userService.update(user);
     }
 
     /**
