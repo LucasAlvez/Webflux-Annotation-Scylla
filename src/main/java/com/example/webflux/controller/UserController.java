@@ -75,8 +75,6 @@ public class UserController {
      */
     @GetMapping(value="/events", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<Tuple2<Long, User>> stream(){
-        Flux<Long> interval = Flux.interval(Duration.ofSeconds(5));
-        Flux<User> events = userService.findAll();
-        return Flux.zip(interval, events);
+        return this.userService.stream();
     }
 }

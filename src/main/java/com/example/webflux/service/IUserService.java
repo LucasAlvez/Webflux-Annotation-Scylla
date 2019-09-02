@@ -3,6 +3,7 @@ package com.example.webflux.service;
 import com.example.webflux.domain.User;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.util.function.Tuple2;
 
 /**
  * The interface User service.
@@ -47,4 +48,11 @@ public interface IUserService {
      * @return the mono
      */
     Mono<Void> delete(String cpf);
- }
+
+    /**
+     * Stream flux.
+     *
+     * @return the flux
+     */
+    Flux<Tuple2<Long, User>> stream();
+}
